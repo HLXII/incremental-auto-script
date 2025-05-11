@@ -15,7 +15,7 @@ module.exports = {
         version: '0.0.0',
         description: 'Cheat your way to infinity',
         author: 'HLXII',
-        match: "https://www.theresmoregame.com/play/",
+        match: "https://www.incremental-game-site.com/",
         homepage: 'https://github.com/HLXII/incremental-auto-script',
         bugs: 'https://github.com/HLXII/incremental-auto-script/issues',
         require: 'https://code.jquery.com/jquery-1.11.1.min.js'
