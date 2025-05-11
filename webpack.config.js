@@ -3,21 +3,21 @@ const path = require('path')
 
 module.exports = {
   mode: 'development',
-  entry: './src/main.js',
+  entry: './src/core/main.js',
   output: {
     path: path.resolve(__dirname, ''),
-    filename: 'theresmore_autoscript.user.js'
+    filename: 'autoscript.user.js'
   },
   plugins: [
     new WebpackUserscript({
       headers: {
-        name: 'Theresmore AutoScript',
+        name: 'Incremental Auto Script',
         version: '0.0.0',
-        description: 'Cheat your way to degeneracy',
+        description: 'Cheat your way to infinity',
         author: 'HLXII',
         match: "https://www.theresmoregame.com/play/",
-        homepage: 'https://github.com/HLXII/Evolve-Autoscript',
-        bugs: 'https://github.com/HLXII/Evolve-Autoscript/issues',
+        homepage: 'https://github.com/HLXII/incremental-auto-script',
+        bugs: 'https://github.com/HLXII/incremental-auto-script/issues',
         require: 'https://code.jquery.com/jquery-1.11.1.min.js'
       }
     })

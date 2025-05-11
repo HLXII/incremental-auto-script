@@ -1,65 +1,20 @@
-import { sleep } from './utility.js';
-import { settings, loadSettings, updateSettings } from './settings.js';
-import { updateUI, uiUpdated, createToggleControl } from './ui.js';
+import { settings } from "./core/settings";
+import { uiUpdated } from "./core/ui";
 
-export const url = 'https://github.com/HLXII/Evolve-Autoscript';
-export const version = '1.3.7';
-export const workingVersion = '0.7.5';
+/**
+ * The number of milliseconds between each loop iteration
+ */
+export const loopInterval = 50;
 
-(async function () {
-    console.log("Waiting for game to load...");
-    await sleep(2000);
-    await main();
-})();
-
-async function main() {
-    'use strict';
-
-    await loadSettings();
-    console.log(settings);
-
-    setupSettingUI();
-
-    // Main script loop
-    var count = 1;
-    while (1) {
-        await sleep(50);
-        await run();
-        count += 1;
-    }
-}
-
-function setupSettingUI() {
-    const targetDiv = document.querySelector('.tour-resources-container');
-    if (targetDiv) {
-        const parentDiv = targetDiv.parentElement;
-        createSettingPanel(parentDiv);
-    }
-}
-
-function createSettingPanel(parentPanel) {
-    let mainDiv = $('<div id="script-settings"></div>');
-    parentPanel.append(mainDiv[0]);
-
-    mainDiv.append(createToggleControl('autoClick', 'Auto Click'));
-    mainDiv.append(createToggleControl('autoBuild', 'Auto Build'));
-    mainDiv.append(createToggleControl('autoResearch', 'Auto Research'));
-    mainDiv.append(createToggleControl('autoSell', 'Auto Sell'));
-    mainDiv.append(createToggleControl('autoBuy', 'Auto Buy'));
-}
-
-
-var counter = 1;
-async function run() {
-    counter++;
+export async function runLoop(count) {
     let currentTab = getCurrentTab();
     await autoClick();
     await autoSell();
     await autoBuy();
-    if (counter % 23 == 0) {
+    if (count % 23 == 0) {
         await autoBuild();
     }
-    else if (counter % 101 == 0) {
+    else if (count % 101 == 0) {
         await autoResearch();
     }
     await goToTab(currentTab);

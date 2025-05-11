@@ -4,10 +4,10 @@
     "webpack-cli": "^3.3.10",
     "webpack-userscript": "^2.4.0"
   },
-  "name": "theresmore",
-  "description": "My personal userscript for the game Evolve by Demagorddon - https://pmotschmann.github.io/Evolve/",
+  "name": "auto-script",
+  "description": "Basic user script for automating HTML-based incremental games",
   "version": "1.0.0",
-  "main": "theresmore_autoscript.meta.js",
+  "main": "autoscript.meta.js",
   "dependencies": {
     "ajv": "^6.10.2",
     "ajv-keywords": "^3.4.1",
